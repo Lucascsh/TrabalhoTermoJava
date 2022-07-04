@@ -9,6 +9,10 @@ public class Teste {
 
     public static void main(String[] args) {
         ArrayList<String> dis = new ArrayList<String>();
+        ArrayList<String> palavrasDigitadas = new ArrayList<String>();
+        ArrayList<String> letrasPosicaoCerta = new ArrayList<String>();
+        ArrayList<String> letrasCertas = new ArrayList<String>();
+        ArrayList<String> letrasNaoEncontradas = new ArrayList<String>();
         try {
             File obj = new File("dicionario.txt");
             Scanner leitor = new Scanner(obj);
@@ -41,22 +45,31 @@ public class Teste {
                     JOptionPane.showMessageDialog(null, "Parabéns você acertou a palavra!");
                         break;
                 }else
+                    palavrasDigitadas.add(palavraEscolhida);
                     tentativas++;
                     int percorrerLetras = 0;
                     do{
                         if(palavraEscolhida.charAt(percorrerLetras)==palavraCerta.charAt(percorrerLetras)){
-                            System.out.println("A letra " + palavraEscolhida.charAt(percorrerLetras) + " está na palavra e na posição correta");
+                            //System.out.println("A letra " + palavraEscolhida.charAt(percorrerLetras) + " está na palavra e na posição correta");
+                            letrasPosicaoCerta.add("" + palavraEscolhida.charAt(percorrerLetras));
                         }else if (palavraCerta.contains("" + palavraEscolhida.charAt(percorrerLetras))){
-                            System.out.println("A letra " + palavraEscolhida.charAt(percorrerLetras) + " está na palavra, mas na posição incorreta");
+                            //System.out.println("A letra " + palavraEscolhida.charAt(percorrerLetras) + " está na palavra, mas na posição incorreta");
+                            letrasCertas.add("" + palavraEscolhida.charAt(percorrerLetras));
                         }else if (!palavraCerta.contains("" + palavraEscolhida.charAt(percorrerLetras))){
-                            System.out.println("A letra " + palavraEscolhida.charAt(percorrerLetras) + " não está na palavra");
+                            //System.out.println("A letra " + palavraEscolhida.charAt(percorrerLetras) + " não está na palavra");
+                            letrasNaoEncontradas.add("" + palavraEscolhida.charAt(percorrerLetras));
                         }
                         percorrerLetras++;
                         
-                        }while(percorrerLetras<5);    
+                        }while(percorrerLetras < 5);
+                    System.out.println("Palavras já testadas: " + palavrasDigitadas);
+                    System.out.println("Letras na Posição Certa: " + letrasPosicaoCerta);
+                    System.out.println("Letras na palavra, mas na posição incorreta: " + letrasCertas);
+                    System.out.println("Letras que não pertencem a palavra: " + letrasNaoEncontradas);
+                    System.out.println("Tentativas: " + tentativas);
                }
      
-        }while(tentativas < 5);
+        }while(tentativas < 6);
         
         
     }
