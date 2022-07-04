@@ -1,0 +1,4 @@
+//else if(palavraEscolhida.charAt(0)==palavraCerta.charAt(1) || palavraEscolhida.charAt(0)==palavraCerta.charAt(2)||palavraEscolhida.charAt(0)==palavraCerta.charAt(3)
+      || palavraEscolhida.charAt(0)==palavraCerta.charAt(4) ){
+                           System.out.println("A letra " + palavraEscolhida.charAt(0) + " esta na palavra, mas não nessa posição");
+        }
