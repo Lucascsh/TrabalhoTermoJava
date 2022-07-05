@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-public class Teste {
+public class Termo {
 
 
     public static void main(String[] args) {
@@ -13,9 +13,10 @@ public class Teste {
         ArrayList<String> letrasPosicaoCerta = new ArrayList<String>();
         ArrayList<String> letrasCertas = new ArrayList<String>();
         ArrayList<String> letrasNaoEncontradas = new ArrayList<String>();
+ 
         try {
-            File obj = new File("dicionario.txt");
-            Scanner leitor = new Scanner(obj);
+            File discionario = new File("dicionario.txt");
+            Scanner leitor = new Scanner(discionario);
             while (leitor.hasNextLine()) {
                 String data = leitor.nextLine();
                 dis.add(data.toUpperCase());
@@ -29,7 +30,7 @@ public class Teste {
         } 
         String palavraCerta = dis.get((int)(Math.random()*6026));
         palavraCerta.toUpperCase();
-        System.out.println(palavraCerta);
+        //System.out.println(palavraCerta);
         int tentativas = 0;
         
         do{
@@ -62,15 +63,17 @@ public class Teste {
                         percorrerLetras++;
                         
                         }while(percorrerLetras < 5);
+                    System.out.println("\n\n");
                     System.out.println("Palavras já testadas: " + palavrasDigitadas);
                     System.out.println("Letras na Posição Certa: " + letrasPosicaoCerta);
                     System.out.println("Letras na palavra, mas na posição incorreta: " + letrasCertas);
                     System.out.println("Letras que não pertencem a palavra: " + letrasNaoEncontradas);
                     System.out.println("Tentativas: " + tentativas);
+            
                }
      
         }while(tentativas < 6);
         
         
-    }
+    } 
 }
